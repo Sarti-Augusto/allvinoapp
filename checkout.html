@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Allvino - Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>body { background-color: #FDFBF7; font-family: sans-serif; }</style>
+</head>
+<body class="p-5 max-w-xl mx-auto pb-24">
+    <header class="flex items-center gap-4 mb-8">
+        <button onclick="history.back()"><span class="material-symbols-outlined">arrow_back</span></button>
+        <h1 class="text-xl font-bold">Finalizar Pedido</h1>
+    </header>
+
+    <section class="space-y-6">
+        <div class="space-y-4">
+            <h2 class="font-bold text-stone-400 text-xs uppercase tracking-widest">Endereço de Entrega</h2>
+            <input id="rua" placeholder="Rua e Número" class="w-full p-4 rounded-2xl bg-stone-100 border-none outline-none">
+            <div class="grid grid-cols-2 gap-4">
+                <input id="cidade" placeholder="Cidade" class="p-4 rounded-2xl bg-stone-100 border-none outline-none">
+                <input id="cep" placeholder="CEP" class="p-4 rounded-2xl bg-stone-100 border-none outline-none">
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <h2 class="font-bold text-stone-400 text-xs uppercase tracking-widest">Forma de Pagamento</h2>
+            <div class="space-y-2">
+                <label class="flex items-center p-4 bg-white rounded-2xl border border-stone-100 gap-3"><input type="radio" name="pag" value="PIX" checked class="text-black"> <span class="font-bold">PIX (-5% OFF)</span></label>
+                <label class="flex items-center p-4 bg-white rounded-2xl border border-stone-100 gap-3"><input type="radio" name="pag" value="Cartão" class="text-black"> <span class="font-bold">Cartão de Crédito</span></label>
+            </div>
+        </div>
+    </section>
+
+    <footer class="fixed bottom-0 left-0 w-full p-5 bg-white border-t">
+        <button onclick="enviar()" class="w-full max-w-xl mx-auto block bg-black text-white py-4 rounded-2xl font-bold text-lg">Confirmar no WhatsApp</button>
+    </footer>
+
+    <script>
+        function enviar() {
+            const cart = JSON.parse(localStorage.getItem('allvino_cart')) || [];
+            if(cart.length === 0) return alert("Carrinho vazio!");
+            const rua = document.getElementById('rua').value, cid = document.getElementById('cidade').value;
+            if(!rua || !cid) return alert("Preencha o endereço!");
+            
+            let msg = `*Novo Pedido - Allvino*\n\n`;
+            cart.forEach(x => msg += `• ${x.qtd}x ${x.nome}\n`);
+            msg += `\n📍 *Endereço:* ${rua}, ${cid}`;
+            msg += `\n💳 *Pagamento:* ${document.querySelector('input[name="pag"]:checked').value}`;
+            
+            window.open(`https://wa.me/5527999999999?text=${encodeURIComponent(msg)}`);
+        }
+    </script>
+</body>
+</html>

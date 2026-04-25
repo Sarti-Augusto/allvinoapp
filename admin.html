@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Allvino - Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body class="flex min-h-screen bg-stone-50">
+    <aside class="w-64 bg-[#111] text-white p-6 flex flex-col hidden lg:flex">
+        <img src="LOGO-ALLVINO-BRANCO.png" class="h-10 object-contain mb-12">
+        <nav class="space-y-6 flex-1">
+            <a href="#" class="flex items-center gap-3 text-white font-bold"><span class="material-symbols-outlined">dashboard</span> Dashboard</a>
+            <a href="#" class="flex items-center gap-3 text-stone-500"><span class="material-symbols-outlined">inventory_2</span> Inventário</a>
+            <a href="#" class="flex items-center gap-3 text-stone-500"><span class="material-symbols-outlined">view_carousel</span> Banners</a>
+        </nav>
+        <button class="text-red-500 flex items-center gap-2 font-bold mt-auto"><span class="material-symbols-outlined">logout</span> Sair</button>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="flex justify-between items-center mb-10">
+            <h1 class="text-2xl font-bold">Gestão Allvino</h1>
+            <button class="bg-black text-white px-6 py-2 rounded-xl font-bold">+ Novo Produto</button>
+        </header>
+
+        <section class="bg-white rounded-3xl shadow-sm border overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-stone-50 border-b">
+                    <tr><th class="p-6">Vinho</th><th class="p-6">Uva</th><th class="p-6">Preço</th><th class="p-6 text-right">Ações</th></tr>
+                </thead>
+                <tbody class="divide-y">
+                    <tr><td class="p-6 font-bold">Arkos Vinho Verde</td><td class="p-6">Branco</td><td class="p-6 font-bold">R$ 89,90</td><td class="p-6 text-right space-x-2"><button class="p-2 border rounded-lg">Editar</button><button class="p-2 border rounded-lg text-red-500">Excluir</button></td></tr>
+                    <tr><td class="p-6 font-bold">Ziar Rosé</td><td class="p-6">Cabernet</td><td class="p-6 font-bold">R$ 95,50</td><td class="p-6 text-right space-x-2"><button class="p-2 border rounded-lg">Editar</button><button class="p-2 border rounded-lg text-red-500">Excluir</button></td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
