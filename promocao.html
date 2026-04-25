@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Allvino - Promoção Exclusiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,700&family=Manrope:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { background-color: #FDFBF7; font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="pb-24">
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-stone-100 flex justify-between items-center w-full px-5 py-4 shadow-sm">
+        <button onclick="history.back()" class="p-1 hover:opacity-70 transition flex items-center justify-center">
+            <span class="material-symbols-outlined text-black">arrow_back</span>
+        </button>
+        <div class="h-8 flex items-center justify-center">
+            <img src="LOGO-ALLVINO-PRETO.png" alt="Allvino" class="h-full w-auto object-contain scale-125">
+        </div>
+        <div class="w-8"></div> </header>
+
+    <main class="max-w-4xl mx-auto px-5 pt-8">
+        
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-stone-100">
+            <div class="h-64 bg-stone-100 relative">
+                <img src="https://images.unsplash.com/photo-1572913017567-02f06497ce10?auto=format&fit=crop&w=800" alt="Arkos Vinho Verde" class="w-full h-full object-cover">
+                <div class="absolute top-4 right-4 bg-[#B91C1C] text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest shadow-md animate-pulse">
+                    Oferta Ativa
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <span class="text-xs font-bold text-stone-400 uppercase tracking-widest block mb-2">Combo Especial Capixaba</span>
+                <h1 class="font-serif text-3xl md:text-4xl font-bold text-black mb-4">Pack 3x Arkos Vinho Verde</h1>
+                <p class="text-stone-600 mb-8 leading-relaxed">De Portugal direto para o Espírito Santo. A seleção perfeita para acompanhar frutos do mar, clima de praia ou piscina. Adquirindo o pack com 3 unidades, você garante um valor exclusivo por garrafa.</p>
+
+                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <p class="text-sm text-stone-400 line-through">De: R$ 269,70</p>
+                        <div class="flex items-end gap-3">
+                            <span class="text-4xl font-bold text-black">R$ 229,90</span>
+                            <span class="text-sm font-bold text-green-600 mb-1">Economia de R$ 39,80</span>
+                        </div>
+                    </div>
+
+                    <button onclick="comprarPromo()" class="w-full md:w-auto bg-[#B91C1C] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest active:scale-95 transition-transform shadow-lg shadow-red-900/20 hover:bg-red-800 flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                        Adicionar à Seleção
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bg-white/90 backdrop-blur-md fixed bottom-0 left-0 w-full z-40 rounded-t-2xl border-t border-stone-100 shadow-[0_-10px_30px_rgba(0,0,0,0.04)] flex justify-around items-center px-6 pb-6 pt-3">
+        <a class="flex flex-col items-center text-stone-400 hover:text-black transition-colors" href="index.html">
+            <span class="material-symbols-outlined">home</span>
+            <span class="text-[10px] uppercase tracking-tighter mt-1 font-bold">Início</span>
+        </a>
+        <a class="flex flex-col items-center text-[#B91C1C] font-bold" href="catalogo.html">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">apps</span>
+            <span class="text-[10px] uppercase tracking-tighter mt-1">Catálogo</span>
+        </a>
+        <a class="flex flex-col items-center text-stone-400 hover:text-black transition-colors" href="#">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-[10px] uppercase tracking-tighter mt-1 font-bold">Conta</span>
+        </a>
+    </nav>
+
+    <script>
+        function comprarPromo() {
+            // Regra do Carrinho para a Promoção
+            let cart = JSON.parse(localStorage.getItem('allvino_cart')) || [];
+            const nomeProduto = "Pack 3x Arkos Vinho Verde";
+            const precoPromo = 229.90;
+            const imgPromo = "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=100";
+
+            const existingItem = cart.find(item => item.nome === nomeProduto);
+            if(existingItem) existingItem.qtd += 1;
+            else cart.push({nome: nomeProduto, preco: precoPromo, img: imgPromo, qtd: 1});
+            
+            localStorage.setItem('allvino_cart', JSON.stringify(cart));
+            
+            // Redireciona para o catálogo onde o usuário verá o pack no carrinho
+            window.location.href = 'catalogo.html';
+        }
+    </script>
+</body>
+</html>
