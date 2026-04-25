@@ -24,9 +24,6 @@
               colors: {
                   primary: "#000000",
                   secondary: "#B91C1C", 
-                  "surface-container-low": "#F4F1EE",
-                  "on-surface-variant": "#666666",
-                  outline: "#E5E5E5"
               },
               fontFamily: {
                   "body": ["Manrope", "sans-serif"],
@@ -95,25 +92,68 @@
 
     <main class="lg:ml-64 p-5 lg:p-8 max-w-7xl mx-auto pb-32">
         
-        <div id="tab-bi" class="tab-content active space-y-8">
+        <div id="tab-bi" class="tab-content space-y-8">
             <h1 class="font-headline text-3xl font-bold text-primary">Inteligência Allvino</h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-primary text-white p-6 rounded-2xl shadow-lg">
-                    <p class="text-white/60 text-xs uppercase font-bold">Faturamento (Hoje)</p>
-                    <h3 class="text-3xl font-bold mt-2">R$ 14.250</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-primary text-white p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+                    <div>
+                        <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-1">Faturamento Geral</p>
+                        <h3 class="text-4xl font-headline font-bold">R$ 14.250</h3>
+                        <p class="text-green-400 text-sm mt-2 font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">trending_up</span> +12% vs. ontem</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-white/20">
+                        <div><p class="text-white/60 text-xs uppercase">Pedidos</p><p class="text-2xl font-bold">38</p></div>
+                        <div><p class="text-white/60 text-xs uppercase">Garrafas</p><p class="text-2xl font-bold">114</p></div>
+                        <div><p class="text-white/60 text-xs uppercase">Clientes</p><p class="text-2xl font-bold">32</p></div>
+                        <div><p class="text-white/60 text-xs uppercase">Ticket Médio</p><p class="text-2xl font-bold">R$ 375</p></div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border shadow-sm">
-                    <p class="text-stone-400 text-xs uppercase font-bold">Garrafas Vendidas</p>
-                    <h3 class="text-3xl font-bold mt-2">114</h3>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border shadow-sm">
-                    <p class="text-stone-400 text-xs uppercase font-bold">Clientes Atendidos</p>
-                    <h3 class="text-3xl font-bold mt-2">32</h3>
+
+                <div class="lg:col-span-2 bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden flex flex-col">
+                    <div class="p-6 border-b border-stone-100 flex justify-between items-center bg-stone-50">
+                        <h3 class="font-bold text-primary flex items-center gap-2"><span class="material-symbols-outlined">group</span> Performance por Vendedor</h3>
+                    </div>
+                    <div class="overflow-x-auto flex-1">
+                        <table class="w-full text-left h-full">
+                            <thead class="bg-stone-50 text-[10px] uppercase text-stone-400 border-b border-stone-100">
+                                <tr>
+                                    <th class="px-6 py-3 font-bold">Equipe</th>
+                                    <th class="px-6 py-3 font-bold text-center">Pedidos</th>
+                                    <th class="px-6 py-3 font-bold text-center">Clientes</th>
+                                    <th class="px-6 py-3 font-bold text-center">Garrafas</th>
+                                    <th class="px-6 py-3 font-bold text-right">Faturamento</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-stone-100">
+                                <tr class="hover:bg-stone-50 transition">
+                                    <td class="px-6 py-4 flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-red-100 text-secondary flex items-center justify-center font-bold text-xs">EL</div>
+                                        <div><span class="font-bold text-primary block">Elen</span><span class="text-[10px] text-stone-400 uppercase tracking-wider">Consultora</span></div>
+                                    </td>
+                                    <td class="px-6 py-4 font-bold text-stone-600 text-center">22</td>
+                                    <td class="px-6 py-4 font-bold text-stone-600 text-center">19</td>
+                                    <td class="px-6 py-4 font-bold text-stone-600 text-center">72</td>
+                                    <td class="px-6 py-4 font-bold text-primary text-right">R$ 8.450,00</td>
+                                </tr>
+                                <tr class="hover:bg-stone-50 transition">
+                                    <td class="px-6 py-4 flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center font-bold text-xs">TH</div>
+                                        <div><span class="font-bold text-primary block">Theo</span><span class="text-[10px] text-stone-400 uppercase tracking-wider">Gerente</span></div>
+                                    </td>
+                                    <td class="px-6 py-4 font-bold text-stone-600 text-center">16</td>
+                                    <td class="px-6 py-4 font-bold text-stone-600 text-center">13</td>
+                                    <td class="px-6 py-4 font-bold text-stone-600 text-center">42</td>
+                                    <td class="px-6 py-4 font-bold text-primary text-right">R$ 5.800,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="tab-catalogo" class="tab-content space-y-8">
+        <div id="tab-catalogo" class="tab-content active space-y-8">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200 pb-6">
                 <div>
                     <h1 class="font-headline text-3xl font-bold text-primary">Gestão do Catálogo</h1>
@@ -151,23 +191,8 @@
                                 <td class="px-6 py-4 font-bold text-primary">R$ 89,90</td>
                                 <td class="px-6 py-4 text-center text-stone-400 font-mono text-xs">SKU-ARK-01</td>
                                 <td class="px-6 py-4 text-right">
-                                    <button class="text-blue-600 hover:text-blue-800 font-bold">Editar</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-6 py-4 font-bold text-primary flex items-center gap-3">
-                                    <img src="https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?auto=format&fit=crop&w=50" class="h-10 w-8 object-contain mix-blend-multiply">
-                                    Ziar Rosé
-                                </td>
-                                <td class="px-6 py-4">🇫🇷 França</td>
-                                <td class="px-6 py-4">
-                                    <span class="block font-bold">Rosé</span>
-                                    <span class="text-[10px] text-stone-400 uppercase tracking-wider">Cabernet Sauvignon</span>
-                                </td>
-                                <td class="px-6 py-4 font-bold text-primary">R$ 95,50</td>
-                                <td class="px-6 py-4 text-center text-stone-400 font-mono text-xs">SKU-ZIR-02</td>
-                                <td class="px-6 py-4 text-right">
-                                    <button class="text-blue-600 hover:text-blue-800 font-bold">Editar</button>
+                                    <button class="text-blue-600 hover:text-blue-800 font-bold px-2 py-1 bg-blue-50 rounded-lg transition mr-2">Editar</button>
+                                    <button onclick="confirm('ATENÇÃO: Tem certeza que deseja remover este SKU do catálogo? Esta ação não pode ser desfeita.')" class="text-red-600 hover:text-red-800 font-bold px-2 py-1 bg-red-50 rounded-lg transition">Remover</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -182,7 +207,6 @@
                 <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Página Ao Vivo</span>
             </div>
             <div class="bg-white rounded-3xl border border-stone-200 shadow-sm p-8 max-w-3xl">
-                <h3 class="font-bold text-lg mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-green-500">edit_document</span> Editar Oferta Ativa</h3>
                 <form class="space-y-6">
                     <input type="text" value="Pack 3x Arkos Vinho Verde" class="w-full bg-stone-50 border-stone-200 rounded-xl py-3 px-4 font-bold outline-none">
                     <div class="grid grid-cols-2 gap-6">
@@ -194,8 +218,8 @@
             </div>
         </div>
 
-        <div id="tab-usuarios" class="tab-content p-12 text-center text-stone-400 border border-dashed rounded-3xl mt-8">Módulo de Equipe Configurado na versão anterior.</div>
-        <div id="tab-perfil" class="tab-content p-12 text-center text-stone-400 border border-dashed rounded-3xl mt-8">Módulo Meu Perfil Configurado na versão anterior.</div>
+        <div id="tab-usuarios" class="tab-content p-12 text-center text-stone-400 font-bold border border-dashed border-stone-200 rounded-3xl mt-8">Gestão de Equipe (Configurado nas versões anteriores)</div>
+        <div id="tab-perfil" class="tab-content p-12 text-center text-stone-400 font-bold border border-dashed border-stone-200 rounded-3xl mt-8">Meu Perfil (Configurado nas versões anteriores)</div>
 
     </main>
 
@@ -208,22 +232,29 @@
             </div>
 
             <div class="flex-1 overflow-y-auto px-6 py-6 space-y-6">
-                <div class="border-2 border-dashed border-stone-300 rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-stone-50 transition bg-[#FDFBF7]">
-                    <span class="material-symbols-outlined text-[40px] text-stone-400 mb-2">add_photo_alternate</span>
-                    <p class="text-sm font-bold text-primary">Foto da Garrafa</p>
-                    <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1">Fundo Transparente (PNG)</p>
-                </div>
+                
+                <label class="border-2 border-dashed border-stone-300 rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-stone-50 transition bg-[#FDFBF7] relative overflow-hidden group">
+                    <input type="file" accept="image/png, image/jpeg" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                    <span class="material-symbols-outlined text-[40px] text-stone-400 mb-2 group-hover:text-blue-500 transition-colors">add_photo_alternate</span>
+                    <p class="text-sm font-bold text-primary group-hover:text-blue-500">Subir Foto da Garrafa</p>
+                    <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1">PNG ou JPG transparente</p>
+                </label>
 
                 <form class="space-y-4">
                     <div>
                         <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Nome Comercial</label>
                         <input type="text" placeholder="Ex: Arkos Vinho Verde" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none font-bold">
                     </div>
+
+                    <div>
+                        <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Descrição do Produto</label>
+                        <textarea rows="3" placeholder="Notas de degustação, harmonização, etc." class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none resize-none"></textarea>
+                    </div>
                     
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">SKU (Integração)</label>
-                            <input type="text" placeholder="Código Sankhya" class="w-full bg-stone-50 border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none font-mono">
+                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">SKU (Sankhya)</label>
+                            <input type="text" placeholder="Código" class="w-full bg-stone-50 border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none font-mono">
                         </div>
                         <div>
                             <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Preço App (R$)</label>
@@ -232,21 +263,26 @@
                     </div>
 
                     <div class="pt-4 border-t border-stone-100">
-                        <p class="text-xs font-bold text-primary mb-3">Informações Técnicas (Filtros do App)</p>
+                        <p class="text-xs font-bold text-primary mb-3">Filtros e Categorias</p>
+                        
                         <div class="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">País</label>
-                                <select class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none bg-none">
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest block">País</label>
+                                    <button type="button" onclick="addCategoria('select-pais', 'Países')" class="text-[10px] text-blue-600 font-bold hover:underline">+ Novo</button>
+                                </div>
+                                <select id="select-pais" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none bg-none">
                                     <option>🇵🇹 Portugal</option>
                                     <option>🇫🇷 França</option>
                                     <option>🇦🇷 Argentina</option>
-                                    <option>🇨🇱 Chile</option>
-                                    <option>🇮🇹 Itália</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Tipo</label>
-                                <select class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none">
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest block">Tipo</label>
+                                    <button type="button" onclick="addCategoria('select-tipo', 'Tipos')" class="text-[10px] text-blue-600 font-bold hover:underline">+ Novo</button>
+                                </div>
+                                <select id="select-tipo" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none">
                                     <option>Branco</option>
                                     <option>Tinto</option>
                                     <option>Rosé</option>
@@ -255,8 +291,16 @@
                             </div>
                         </div>
                         <div>
-                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Uva Principal</label>
-                            <input type="text" placeholder="Ex: Cabernet Sauvignon" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest block">Tipo de Uva</label>
+                                <button type="button" onclick="addCategoria('select-uva', 'Uvas')" class="text-[10px] text-blue-600 font-bold hover:underline">+ Nova Uva</button>
+                            </div>
+                            <select id="select-uva" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none">
+                                <option>Blend / Corte</option>
+                                <option>Cabernet Sauvignon</option>
+                                <option>Malbec</option>
+                                <option>Chardonnay</option>
+                            </select>
                         </div>
                     </div>
                 </form>
@@ -271,20 +315,15 @@
     </div>
 
     <script>
-        // Controle de Sidebar
         function toggleSidebar() {
             const s = document.getElementById('sidebar'), o = document.getElementById('sidebar-overlay');
             s.classList.toggle('-translate-x-full'); o.classList.toggle('hidden');
         }
-        
-        // Controle de Abas
         function showTab(t) {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             document.getElementById('tab-' + t).classList.add('active');
             if(window.innerWidth < 1024) toggleSidebar();
         }
-
-        // Controle do Modal de Adição de Produtos
         function toggleModal(id) {
             const overlay = document.getElementById(id);
             const panel = overlay.querySelector('.relative');
@@ -298,6 +337,19 @@
                 overlay.classList.add('opacity-0');
                 panel.classList.add('translate-x-full');
                 setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+        
+        // Função Inteligente para Cadastrar Novas Categorias (Uva, País, Tipo)
+        function addCategoria(selectId, nomeCat) {
+            const novaOpcao = prompt(`Digite o nome para adicionar à lista de ${nomeCat}:`);
+            if (novaOpcao && novaOpcao.trim() !== '') {
+                const select = document.getElementById(selectId);
+                const option = document.createElement('option');
+                option.text = novaOpcao;
+                option.value = novaOpcao;
+                select.add(option);
+                select.value = novaOpcao; // Já deixa selecionada a nova opção
             }
         }
     </script>
