@@ -44,7 +44,7 @@
             <button onclick="toggleSidebar()" class="lg:hidden p-1 text-white hover:bg-stone-800 rounded-md transition-colors flex items-center justify-center">
                 <span class="material-symbols-outlined">menu</span>
             </button>
-            <h2 class="text-lg font-bold text-white hidden sm:block">Painel de Gestão Allvino</h2>
+            <h2 class="text-lg font-bold text-white hidden sm:block">Gestão Allvino</h2>
         </div>
         
         <div class="flex items-center space-x-4">
@@ -68,24 +68,19 @@
 
         <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto no-scrollbar">
             <button onclick="showTab('bi')" class="w-full flex items-center px-4 py-3 text-stone-400 hover:bg-stone-800 hover:text-white rounded-xl transition-colors font-medium">
-                <span class="material-symbols-outlined mr-3 text-secondary">analytics</span>
-                Painel BI
+                <span class="material-symbols-outlined mr-3 text-secondary">analytics</span> Painel BI
             </button>
-            <button onclick="showTab('estoque')" class="w-full flex items-center px-4 py-3 text-stone-400 hover:bg-stone-800 hover:text-white rounded-xl transition-colors font-medium">
-                <span class="material-symbols-outlined mr-3">inventory_2</span>
-                Estoque (Sankhya)
+            <button onclick="showTab('catalogo')" class="w-full flex items-center px-4 py-3 text-stone-400 hover:bg-stone-800 hover:text-white rounded-xl transition-colors font-medium">
+                <span class="material-symbols-outlined mr-3 text-blue-400">wine_bar</span> Catálogo de Vinhos
             </button>
             <button onclick="showTab('promo')" class="w-full flex items-center px-4 py-3 text-stone-400 hover:bg-stone-800 hover:text-white rounded-xl transition-colors font-medium">
-                <span class="material-symbols-outlined mr-3 text-green-500">campaign</span>
-                Seleções e Promoções
+                <span class="material-symbols-outlined mr-3 text-green-500">campaign</span> Promoções
             </button>
             <button onclick="showTab('usuarios')" class="w-full flex items-center px-4 py-3 text-stone-400 hover:bg-stone-800 hover:text-white rounded-xl transition-colors font-medium">
-                <span class="material-symbols-outlined mr-3">group</span>
-                Gestão de Equipe
+                <span class="material-symbols-outlined mr-3 text-orange-400">group</span> Equipe
             </button>
             <button onclick="showTab('perfil')" class="w-full flex items-center px-4 py-3 text-stone-400 hover:bg-stone-800 hover:text-white rounded-xl transition-colors font-medium">
-                <span class="material-symbols-outlined mr-3">person_edit</span>
-                Meu Perfil
+                <span class="material-symbols-outlined mr-3 text-purple-400">person_edit</span> Meu Perfil
             </button>
         </nav>
 
@@ -101,147 +96,209 @@
     <main class="lg:ml-64 p-5 lg:p-8 max-w-7xl mx-auto pb-32">
         
         <div id="tab-bi" class="tab-content active space-y-8">
-            <div class="border-b border-stone-200 pb-6">
-                <h1 class="font-headline text-3xl font-bold text-primary">Inteligência de Mercado</h1>
-                <p class="text-on-surface-variant text-sm mt-1">Theo, aqui estão as métricas consolidadas da loja.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="bg-primary text-white p-6 rounded-2xl shadow-xl flex flex-col justify-between">
-                    <div>
-                        <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-1">Faturamento Hoje</p>
-                        <h3 class="text-4xl font-headline font-bold">R$ 14.250</h3>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-white/20">
-                        <div><p class="text-white/60 text-xs uppercase">Pedidos</p><p class="text-2xl font-bold">38</p></div>
-                        <div><p class="text-white/60 text-xs uppercase">Garrafas</p><p class="text-2xl font-bold">114</p></div>
-                    </div>
+            <h1 class="font-headline text-3xl font-bold text-primary">Inteligência Allvino</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-primary text-white p-6 rounded-2xl shadow-lg">
+                    <p class="text-white/60 text-xs uppercase font-bold">Faturamento (Hoje)</p>
+                    <h3 class="text-3xl font-bold mt-2">R$ 14.250</h3>
                 </div>
+                <div class="bg-white p-6 rounded-2xl border shadow-sm">
+                    <p class="text-stone-400 text-xs uppercase font-bold">Garrafas Vendidas</p>
+                    <h3 class="text-3xl font-bold mt-2">114</h3>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border shadow-sm">
+                    <p class="text-stone-400 text-xs uppercase font-bold">Clientes Atendidos</p>
+                    <h3 class="text-3xl font-bold mt-2">32</h3>
+                </div>
+            </div>
+        </div>
 
-                <div class="lg:col-span-2 bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
-                    <div class="p-6 border-b border-stone-100 flex justify-between items-center bg-stone-50">
-                        <h3 class="font-bold text-primary flex items-center gap-2"><span class="material-symbols-outlined">group</span> Performance por Vendedor</h3>
-                    </div>
-                    <table class="w-full text-left">
-                        <thead class="bg-stone-50 text-[10px] uppercase text-stone-400 border-b">
-                            <tr><th class="px-6 py-3">Equipe</th><th class="px-6 py-3">Pedidos</th><th class="px-6 py-3 text-right">Total</th></tr>
+        <div id="tab-catalogo" class="tab-content space-y-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200 pb-6">
+                <div>
+                    <h1 class="font-headline text-3xl font-bold text-primary">Gestão do Catálogo</h1>
+                    <p class="text-on-surface-variant text-sm mt-1">Enriqueça os dados técnicos dos vinhos para os filtros do App.</p>
+                </div>
+                <button onclick="toggleModal('modal-produto')" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg hover:bg-blue-700 transition">
+                    <span class="material-symbols-outlined">add</span> Novo Vinho
+                </button>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left min-w-[800px]">
+                        <thead class="bg-stone-50 border-b border-stone-200 text-xs uppercase font-bold text-stone-400">
+                            <tr>
+                                <th class="px-6 py-4">Vinho</th>
+                                <th class="px-6 py-4">País</th>
+                                <th class="px-6 py-4">Tipo / Uva</th>
+                                <th class="px-6 py-4">Preço App</th>
+                                <th class="px-6 py-4 text-center">SKU Sankhya</th>
+                                <th class="px-6 py-4 text-right">Ações</th>
+                            </tr>
                         </thead>
-                        <tbody class="divide-y divide-stone-100">
-                            <tr><td class="px-6 py-4 font-bold text-sm">Elen (Consultora)</td><td class="px-6 py-4 text-sm">22</td><td class="px-6 py-4 font-bold text-right">R$ 8.450</td></tr>
-                            <tr><td class="px-6 py-4 font-bold text-sm">Theo (Gerente)</td><td class="px-6 py-4 text-sm">16</td><td class="px-6 py-4 font-bold text-right">R$ 5.800</td></tr>
+                        <tbody class="divide-y divide-stone-100 text-sm">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-6 py-4 font-bold text-primary flex items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=50" class="h-10 w-8 object-contain mix-blend-multiply">
+                                    Arkos Vinho Verde
+                                </td>
+                                <td class="px-6 py-4">🇵🇹 Portugal</td>
+                                <td class="px-6 py-4">
+                                    <span class="block font-bold">Branco</span>
+                                    <span class="text-[10px] text-stone-400 uppercase tracking-wider">Blend</span>
+                                </td>
+                                <td class="px-6 py-4 font-bold text-primary">R$ 89,90</td>
+                                <td class="px-6 py-4 text-center text-stone-400 font-mono text-xs">SKU-ARK-01</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-blue-600 hover:text-blue-800 font-bold">Editar</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-6 py-4 font-bold text-primary flex items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?auto=format&fit=crop&w=50" class="h-10 w-8 object-contain mix-blend-multiply">
+                                    Ziar Rosé
+                                </td>
+                                <td class="px-6 py-4">🇫🇷 França</td>
+                                <td class="px-6 py-4">
+                                    <span class="block font-bold">Rosé</span>
+                                    <span class="text-[10px] text-stone-400 uppercase tracking-wider">Cabernet Sauvignon</span>
+                                </td>
+                                <td class="px-6 py-4 font-bold text-primary">R$ 95,50</td>
+                                <td class="px-6 py-4 text-center text-stone-400 font-mono text-xs">SKU-ZIR-02</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-blue-600 hover:text-blue-800 font-bold">Editar</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <div id="tab-usuarios" class="tab-content space-y-8">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200 pb-6">
-                <div>
-                    <h1 class="font-headline text-3xl font-bold text-primary">Gestão de Equipe</h1>
-                    <p class="text-on-surface-variant text-sm mt-1">Controle de acessos e novos consultores.</p>
-                </div>
-                <button class="bg-primary text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg">
-                    <span class="material-symbols-outlined">person_add</span> Novo Usuário
-                </button>
+        <div id="tab-promo" class="tab-content space-y-8">
+            <div class="flex justify-between items-center border-b pb-6">
+                <h1 class="font-headline text-3xl font-bold text-primary">Gestão de Promoções</h1>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Página Ao Vivo</span>
             </div>
-
-            <div class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
-                <table class="w-full text-left">
-                    <thead class="bg-stone-50 border-b border-stone-200">
-                        <tr>
-                            <th class="px-6 py-4 text-xs uppercase font-bold text-on-surface-variant">Nome</th>
-                            <th class="px-6 py-4 text-xs uppercase font-bold text-on-surface-variant">E-mail</th>
-                            <th class="px-6 py-4 text-xs uppercase font-bold text-on-surface-variant">Função</th>
-                            <th class="px-6 py-4 text-xs uppercase font-bold text-on-surface-variant text-right">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-stone-100 text-sm">
-                        <tr>
-                            <td class="px-6 py-4 font-bold">Theo</td>
-                            <td class="px-6 py-4">theo@allvino.com.br</td>
-                            <td class="px-6 py-4"><span class="px-2 py-1 bg-black text-white text-[10px] rounded-full uppercase font-bold">Master</span></td>
-                            <td class="px-6 py-4 text-right"><button class="text-stone-400 hover:text-black font-bold">Editar</button></td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-bold">Elen</td>
-                            <td class="px-6 py-4">elen@allvino.com.br</td>
-                            <td class="px-6 py-4"><span class="px-2 py-1 bg-stone-100 text-stone-600 text-[10px] rounded-full uppercase font-bold">Consultora</span></td>
-                            <td class="px-6 py-4 text-right flex justify-end gap-3">
-                                <button class="text-stone-400 hover:text-black font-bold">Editar</button>
-                                <button class="text-red-500 hover:text-red-700 font-bold">Remover</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div id="tab-perfil" class="tab-content space-y-8">
-            <div class="border-b border-stone-200 pb-6">
-                <h1 class="font-headline text-3xl font-bold text-primary">Meus Dados Credenciais</h1>
-                <p class="text-on-surface-variant text-sm mt-1">Mantenha seu acesso e informações de contato atualizadas.</p>
-            </div>
-
-            <div class="max-w-2xl bg-white rounded-3xl border border-stone-200 shadow-sm p-8">
+            <div class="bg-white rounded-3xl border border-stone-200 shadow-sm p-8 max-w-3xl">
+                <h3 class="font-bold text-lg mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-green-500">edit_document</span> Editar Oferta Ativa</h3>
                 <form class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Nome Completo</label>
-                            <input type="text" value="Theo" class="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary outline-none font-bold">
-                        </div>
-                        <div>
-                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">E-mail Corporativo</label>
-                            <input type="email" value="theo@allvino.com.br" class="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary outline-none font-bold">
-                        </div>
+                    <input type="text" value="Pack 3x Arkos Vinho Verde" class="w-full bg-stone-50 border-stone-200 rounded-xl py-3 px-4 font-bold outline-none">
+                    <div class="grid grid-cols-2 gap-6">
+                        <input type="text" value="269,70" class="w-full bg-stone-50 border-stone-200 rounded-xl py-3 px-4 outline-none">
+                        <input type="text" value="229,90" class="w-full bg-stone-50 border-stone-200 rounded-xl py-3 px-4 outline-none font-bold text-secondary">
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">CPF</label>
-                            <input type="text" placeholder="000.000.000-00" class="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary outline-none font-bold">
-                        </div>
-                        <div>
-                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Telefone / WhatsApp</label>
-                            <input type="text" value="(27) 3261-9494" class="w-full bg-stone-50 border border-stone-200 rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary outline-none font-bold">
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-stone-100 flex justify-between items-center">
-                        <button type="button" class="text-secondary font-bold text-sm">Alterar Minha Senha</button>
-                        <button type="submit" class="bg-primary text-white px-8 py-3 rounded-xl font-bold text-sm shadow-lg active:scale-95 transition-transform">
-                            Salvar Alterações
-                        </button>
-                    </div>
+                    <button type="button" class="bg-black text-white px-10 py-4 rounded-2xl font-bold uppercase tracking-widest shadow-lg">Atualizar App</button>
                 </form>
             </div>
         </div>
 
-        <div id="tab-estoque" class="tab-content"><div class="p-12 text-center text-stone-400">Integração Sankhya em desenvolvimento...</div></div>
-        <div id="tab-promo" class="tab-content"><div class="p-12 text-center text-stone-400">Módulo de Promoções em desenvolvimento...</div></div>
+        <div id="tab-usuarios" class="tab-content p-12 text-center text-stone-400 border border-dashed rounded-3xl mt-8">Módulo de Equipe Configurado na versão anterior.</div>
+        <div id="tab-perfil" class="tab-content p-12 text-center text-stone-400 border border-dashed rounded-3xl mt-8">Módulo Meu Perfil Configurado na versão anterior.</div>
 
     </main>
 
+    <div id="modal-produto" class="fixed inset-0 z-[60] flex justify-end hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="toggleModal('modal-produto')"></div>
+        <div class="relative w-full max-w-md h-full bg-white flex flex-col transform translate-x-full transition-transform duration-300 ease-out shadow-2xl">
+            <div class="flex items-center justify-between px-6 py-5 border-b border-stone-100 bg-stone-50">
+                <h2 class="font-headline text-xl font-bold text-primary">Detalhes do Vinho</h2>
+                <button onclick="toggleModal('modal-produto')" class="p-2 hover:bg-stone-200 rounded-full transition-colors"><span class="material-symbols-outlined">close</span></button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+                <div class="border-2 border-dashed border-stone-300 rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-stone-50 transition bg-[#FDFBF7]">
+                    <span class="material-symbols-outlined text-[40px] text-stone-400 mb-2">add_photo_alternate</span>
+                    <p class="text-sm font-bold text-primary">Foto da Garrafa</p>
+                    <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1">Fundo Transparente (PNG)</p>
+                </div>
+
+                <form class="space-y-4">
+                    <div>
+                        <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Nome Comercial</label>
+                        <input type="text" placeholder="Ex: Arkos Vinho Verde" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none font-bold">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">SKU (Integração)</label>
+                            <input type="text" placeholder="Código Sankhya" class="w-full bg-stone-50 border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none font-mono">
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Preço App (R$)</label>
+                            <input type="number" step="0.01" placeholder="0,00" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none font-bold">
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-stone-100">
+                        <p class="text-xs font-bold text-primary mb-3">Informações Técnicas (Filtros do App)</p>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">País</label>
+                                <select class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none bg-none">
+                                    <option>🇵🇹 Portugal</option>
+                                    <option>🇫🇷 França</option>
+                                    <option>🇦🇷 Argentina</option>
+                                    <option>🇨🇱 Chile</option>
+                                    <option>🇮🇹 Itália</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Tipo</label>
+                                <select class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none">
+                                    <option>Branco</option>
+                                    <option>Tinto</option>
+                                    <option>Rosé</option>
+                                    <option>Espumante</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase text-stone-400 font-bold tracking-widest mb-1 block">Uva Principal</label>
+                            <input type="text" placeholder="Ex: Cabernet Sauvignon" class="w-full bg-white border border-stone-200 focus:border-black rounded-xl py-3 px-4 text-sm outline-none">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="p-6 border-t border-stone-100 bg-white">
+                <button onclick="toggleModal('modal-produto')" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-sm uppercase tracking-widest active:scale-95 transition hover:bg-blue-700 shadow-lg">
+                    Salvar no Catálogo
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Menu Lateral Mobile
+        // Controle de Sidebar
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('-translate-x-full');
-            overlay.classList.toggle('hidden');
+            const s = document.getElementById('sidebar'), o = document.getElementById('sidebar-overlay');
+            s.classList.toggle('-translate-x-full'); o.classList.toggle('hidden');
+        }
+        
+        // Controle de Abas
+        function showTab(t) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById('tab-' + t).classList.add('active');
+            if(window.innerWidth < 1024) toggleSidebar();
         }
 
-        // Navegação entre abas
-        function showTab(tabId) {
-            // Esconde todas
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(c => c.classList.remove('active'));
-            
-            // Mostra a selecionada
-            document.getElementById('tab-' + tabId).classList.add('active');
-            
-            // Fecha sidebar no mobile ao clicar
-            if(window.innerWidth < 1024) toggleSidebar();
+        // Controle do Modal de Adição de Produtos
+        function toggleModal(id) {
+            const overlay = document.getElementById(id);
+            const panel = overlay.querySelector('.relative');
+            if (overlay.classList.contains('hidden')) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    panel.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                overlay.classList.add('opacity-0');
+                panel.classList.add('translate-x-full');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
         }
     </script>
 </body>
